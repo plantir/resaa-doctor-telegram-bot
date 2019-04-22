@@ -16,16 +16,13 @@ bot.onText(/شروع|بازگشت به خانه|start/, async msg => {
     }
   }
   if (phone) {
-    options.reply_markup.keyboard.push([
-      {
-        text: 'شارژ اعتبار رسا'
-      }
-    ])
+    options.reply_markup.keyboard.push([{
+      text: 'شارژ اعتبار رسا'
+    }])
   }
   options.reply_markup.keyboard.push(
     ...[
-      [
-        {
+      [{
           text: 'سوال پزشکی دارم'
         },
         {
@@ -34,11 +31,9 @@ bot.onText(/شروع|بازگشت به خانه|start/, async msg => {
       ]
     ]
   )
-  options.reply_markup.keyboard.push([
-    {
-      text: 'تماس با پشتیبانی'
-    }
-  ])
+  options.reply_markup.keyboard.push([{
+    text: 'تماس با پشتیبانی'
+  }])
   options.caption = message
-  await bot.sendVideo(msg.chat.id, start_video, options)
+  await bot.sendMessage(msg.chat.id, 'hello')
 })

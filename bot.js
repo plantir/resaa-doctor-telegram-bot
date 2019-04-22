@@ -1,5 +1,5 @@
 var TelegramBot = require('node-telegram-bot-api')
-const token = '465416748:AAFUNdi2vaC-TyUksGoWg-LdRahQphGXo-4'
+const token = '388067630:AAHwHSYHfX7zdFrCKPIC1oi14wvZcxWqc_c'
 const User = require('./Model/User')
 class Bot extends TelegramBot {
   async sendMessage(chatId, text, body = {}, whith_history = true) {
