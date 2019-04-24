@@ -1,3 +1,4 @@
+require('dotenv').config()
 var TelegramBot = require('node-telegram-bot-api')
 const token = '388067630:AAHwHSYHfX7zdFrCKPIC1oi14wvZcxWqc_c'
 const User = require('./Model/User')

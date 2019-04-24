@@ -1,26 +1,27 @@
+require('dotenv').config()
 const bot = require('./bot')
 const port = 8888;
 const token = bot.token;
-const url = 'https://rubika.resaa.net';
+const url = 'https://DoctorBotTelegram.resaa.net';
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const request = require('request-promise')
 const fs = require('fs')
 require('./state/start')
-require('./state/contactus')
-require('./state/my_doctor')
-require('./state/medical_question')
-require('./state/search_doctor_with_name')
-require('./state/search_doctor_with_code')
-require('./state/doctor_list_with_speciality')
-require('./state/doctor_detail')
-require('./state/call_doctor')
-require('./state/register')
-require('./state/charge')
-require('./state/back')
-require('./state/payment_return')
-// bot.updateBotEndpoints(url);
+// require('./state/contactus')
+// require('./state/my_doctor')
+// require('./state/medical_question')
+// require('./state/search_doctor_with_name')
+// require('./state/search_doctor_with_code')
+// require('./state/doctor_list_with_speciality')
+// require('./state/doctor_detail')
+// require('./state/call_doctor')
+// require('./state/register')
+// require('./state/charge')
+// require('./state/back')
+// require('./state/payment_return')
+// bot.setWebHook(url);
 app.use(bodyParser.json());
 app.post(`/`, (req, res) => {
     console.log(req.body);
