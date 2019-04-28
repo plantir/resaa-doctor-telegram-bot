@@ -1,6 +1,6 @@
 require('dotenv').config()
 const bot = require('./bot')
-const port = 8888;
+const port = process.env.port || 8888;
 const token = bot.token;
 const url = 'https://DoctorBotTelegram.resaa.net';
 const express = require('express');
