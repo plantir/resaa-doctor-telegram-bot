@@ -55,7 +55,9 @@ app.post('/testAnswer', async (req, res, next) => {
 app.listen(port, () => {
     console.log(`Express server is listening on ${port}`);
 });
-
+bot.onText(/chatID/i, msg => {
+    bot.sendMessage(msg.chat.id, msg.chat.id)
+})
 
 function generate_tracking_code() {
     return (Math.floor(Math.random() * 1000000) + 1000000)
