@@ -35,6 +35,8 @@ app.post('/testAnswer', async (req, res, next) => {
     let files = req.body.testAnswers;
     let chat_id = req.body.chat_id
     let tracking_code = generate_tracking_code()
+	if(files){
+	
     for (const file of files) {
         try {
             // let read_stream = fs.createReadStream()
@@ -49,7 +51,11 @@ app.post('/testAnswer', async (req, res, next) => {
             return res.status(500).send(error)
         }
     }
-    res.send(tracking_code)
+	res.send(tracking_code)
+	}else{
+	res.send(false)
+	}
+    
 })
 // Start Express Server
 app.listen(port, () => {
