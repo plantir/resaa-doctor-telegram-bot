@@ -42,7 +42,3 @@ bot.onText(/شروع|بازگشت به خانه|start/, async msg => {
   options.caption = message;
   await bot.sendMessage(msg.chat.id, 'hello');
 });
-
-bot.onText(/chatid/g, msg => {
-  bot.sendMessage(msg.chat.id, msg.chat.id);
-});
