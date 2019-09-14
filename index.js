@@ -9,19 +9,7 @@ const app = express();
 const request = require('request-promise');
 const fs = require('fs');
 require('./state/start');
-// require('./state/contactus')
-// require('./state/my_doctor')
-// require('./state/medical_question')
-// require('./state/search_doctor_with_name')
-// require('./state/search_doctor_with_code')
-// require('./state/doctor_list_with_speciality')
-// require('./state/doctor_detail')
-// require('./state/call_doctor')
-// require('./state/register')
-// require('./state/charge')
-// require('./state/back')
-// require('./state/payment_return')
-// bot.setWebHook(url);
+require('./state/replay');
 app.use(bodyParser.json());
 app.post(`/`, (req, res) => {
   console.log(req.body);
@@ -34,6 +22,7 @@ app.get(`/`, (req, res) => {
 app.post('/testAnswer', async (req, res, next) => {
   let files = req.body.testAnswers;
   let chat_id = req.body.chat_id;
+  let patient_chatid = req.body.patient_chatid;
   let tracking_code = generate_tracking_code();
   for (const file of files) {
     try {
@@ -43,7 +32,7 @@ app.post('/testAnswer', async (req, res, next) => {
       stream.pipe(fs.createWriteStream(name));
       // let photo = fs.createReadStream(name)
       await bot.sendPhoto(chat_id, stream, {
-        caption: `#${tracking_code}`
+        caption: `${tracking_code}#${patient_chatid}`
       });
     } catch (error) {
       return res.status(500).send(error);
