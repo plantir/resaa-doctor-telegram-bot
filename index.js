@@ -1,6 +1,8 @@
-require('dotenv').config();
+require('dotenv').config({
+  path: process.env.NODE_ENV == 'development' ? './.env.development' : './.env'
+});
 const bot = require('./bot');
-const port = process.env.port || 9000;
+const port = process.env.port || 9001;
 const token = bot.token;
 const url = 'https://DoctorBotTelegram.resaa.net';
 const express = require('express');
