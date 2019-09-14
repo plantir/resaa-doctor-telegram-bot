@@ -5,6 +5,12 @@ bot.on('message', async msg => {
     return;
   }
   try {
+    if (!msg.voice && !msg.text) {
+      return bot.sendMessage(
+        msg.chat.id,
+        `شما تنها امکان ارسال متن و صدا را برای بیمار دارید`
+      );
+    }
     if (msg.voice) {
       let { result } = await request.get({
         url: `https://api.telegram.org/bot${process.env.TOKEN}/getFile?file_id=${msg.voice.file_id}`,
